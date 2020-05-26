@@ -11,17 +11,15 @@ public class MBGDemo {
     public  void test() {
         //key为表名，value为别名
         Map<String, String> tablesMap = new HashMap<>();
-        tablesMap.put("firewall", "f");
-        tablesMap.put("firewall_rule", "fr");
         tablesMap.put("firewall_policy", "fp");
 
-        MBG.builder().connectionURL("jdbc:mysql://172.31.133.29:3306/xfyun_exquisite?serverTimezone=GMT%2B8")
+        MBG.builder().connectionURL("你的数据库URL")
                 .driverClass("com.mysql.cj.jdbc.Driver")
-                .userId("root")
-                .password("xfyun_test")
-                .javaModelTargetPackage("com.iflytek.xfyun.cloudlego.iaasweb.firewall.do0")
+                .userId("你的数据库用户名")
+                .password("你的数据库用户名密码")
+                .javaModelTargetPackage("生成的DO类所在的包")
                 .javaModelTargetProject("src/main/java")
-                .javaClientTargetPackage("com.iflytek.xfyun.cloudlego.iaasweb.firewall.mapper")
+                .javaClientTargetPackage("生成的Mapper接口所在的包")
                 .javaClientTargetProject("src/main/java")
                 .tablesMap(tablesMap).build().generate();
     }
