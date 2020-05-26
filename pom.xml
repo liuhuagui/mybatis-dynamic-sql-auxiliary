@@ -7,7 +7,7 @@
     <artifactId>mybatis-auxiliary</artifactId>
     <version>1.0.1</version>
     <name>mybatis-auxiliary</name>
-    <description>Demo project for Spring Boot</description>
+    <description>MybatisDynamicSQL + 简单易用的物理分页+ Dynamic SQL Generator+《阿里巴巴泰山版开发手册》命名规范，在Java8的基础上，极大的简化Mybatis的使用，使你的项目开发飞起，妈妈再也不用担心你要加班了！！</description>
     <url>https://github.com/liuhuagui/mybatis-auxiliary</url>
 
     <licenses>
