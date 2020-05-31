@@ -3,14 +3,14 @@ package com.github.liuhuagui.mybatis.auxiliary.page;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
- * 存放物理分页参数 —— offset、limit或 fetch first
- *
- * @author KaiKang 799600902@qq.com
+ * @author liuhuagui
  */
 @Setter
 @Getter
-public class Page extends Order {
+public abstract class Page implements Serializable {
     /**
      * 页码
      */
@@ -19,4 +19,9 @@ public class Page extends Order {
      * 页长
      */
     private Long pageSize;
+
+    /**
+     * 排序规则 —— 根据数值自定义
+     */
+    private Integer order;
 }

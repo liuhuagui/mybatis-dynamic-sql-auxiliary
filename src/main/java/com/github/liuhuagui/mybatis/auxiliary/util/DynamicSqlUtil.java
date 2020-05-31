@@ -1,5 +1,6 @@
 package com.github.liuhuagui.mybatis.auxiliary.util;
 
+import org.mybatis.dynamic.sql.Constant;
 import org.mybatis.dynamic.sql.SortSpecification;
 import org.mybatis.dynamic.sql.SqlBuilder;
 import org.mybatis.dynamic.sql.StringConstant;
@@ -35,6 +36,10 @@ public class DynamicSqlUtil {
         if (value == null)
             return null;
         return value + "%";
+    }
+
+    public static Constant aNull() {
+        return SqlBuilder.constant("null");
     }
 
     public static SortSpecification[] sorts(SortSpecification... columns) {

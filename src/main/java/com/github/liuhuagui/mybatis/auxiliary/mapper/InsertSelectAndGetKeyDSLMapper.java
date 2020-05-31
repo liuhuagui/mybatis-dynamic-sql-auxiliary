@@ -1,6 +1,6 @@
 package com.github.liuhuagui.mybatis.auxiliary.mapper;
 
-import com.github.liuhuagui.mybatis.auxiliary.modle.GeneratedKey;
+import com.github.liuhuagui.mybatis.auxiliary.model.GeneratedKey;
 import org.apache.ibatis.annotations.InsertProvider;
 import org.apache.ibatis.annotations.Options;
 import org.mybatis.dynamic.sql.insert.InsertSelectDSL;

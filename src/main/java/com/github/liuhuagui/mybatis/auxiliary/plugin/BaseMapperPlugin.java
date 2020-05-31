@@ -86,21 +86,16 @@ public class BaseMapperPlugin extends PluginAdapter {
 
     @Override
     public boolean clientGenerated(Interface interfaze, IntrospectedTable introspectedTable) {
+        //for importing
         FullyQualifiedJavaType baseMapperTypeWithNoArguments = new FullyQualifiedJavaType(baseMapper);
         interfaze.addImportedType(baseMapperTypeWithNoArguments);
 
+        //for adding a type argument
         //Plugin works as a singleton, please note security.
         FullyQualifiedJavaType baseMapperTypeWithArguments = new FullyQualifiedJavaType(baseMapper);
         //record type as type argument.
         FullyQualifiedJavaType recordType = new FullyQualifiedJavaType(introspectedTable.getBaseRecordType());
         baseMapperTypeWithArguments.addTypeArgument(recordType);
-
-        //primary key type as type arguments.
-        for (IntrospectedColumn primaryKeyColumn : introspectedTable.getPrimaryKeyColumns()) {
-            FullyQualifiedJavaType primaryKeyColumnType = primaryKeyColumn.getFullyQualifiedJavaType();
-            baseMapperTypeWithArguments.addTypeArgument(primaryKeyColumnType);
-        }
-
         interfaze.addSuperInterface(baseMapperTypeWithArguments);
 
         return true;

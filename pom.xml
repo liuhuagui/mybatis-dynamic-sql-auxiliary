@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.liuhuagui</groupId>
-    <artifactId>mybatis-auxiliary</artifactId>
-    <version>1.0.1</version>
-    <name>mybatis-auxiliary</name>
+    <artifactId>mybatis-dynamic-sql-auxiliary</artifactId>
+    <version>1.2.0</version>
+    <name>mybatis-dynamic-sql-auxiliary</name>
     <description>MybatisDynamicSQL + 简单易用的物理分页+ Dynamic SQL Generator+《阿里巴巴泰山版开发手册》命名规范，在Java8的基础上，极大的简化Mybatis的使用，使你的项目开发飞起，妈妈再也不用担心你要加班了！！</description>
-    <url>https://github.com/liuhuagui/mybatis-auxiliary</url>
+    <url>https://github.com/liuhuagui/mybatis-dynamic-sql-auxiliary</url>
 
     <licenses>
         <license>
@@ -32,9 +32,9 @@
     </developers>
 
     <scm>
-        <url>https://github.com/liuhuagui/mybatis-auxiliary</url>
-        <connection>scm:git:git@github.com:liuhuagui/mybatis-auxiliary.git</connection>
-        <developerConnection>scm:git:git@github.com:liuhuagui/mybatis-auxiliary.git</developerConnection>
+        <url>https://github.com/liuhuagui/mybatis-dynamic-sql-auxiliary</url>
+        <connection>scm:git:git@github.com:liuhuagui/mybatis-dynamic-sql-auxiliary.git</connection>
+        <developerConnection>scm:git:git@github.com:liuhuagui/mybatis-dynamic-sql-auxiliary.git</developerConnection>
     </scm>
 
     <properties>
@@ -58,14 +58,13 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.5.2</version>
+            <version>3.5.4</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>org.mybatis.dynamic-sql</groupId>
             <artifactId>mybatis-dynamic-sql</artifactId>
             <version>1.1.4</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -160,7 +159,7 @@
 
     <issueManagement>
         <system>GitHub Issue Management</system>
-        <url>https://github.com/liuhuagui/mybatis-auxiliary/issues</url>
+        <url>https://github.com/liuhuagui/mybatis-dynamic-sql-auxiliary/issues</url>
     </issueManagement>
 
     <distributionManagement>

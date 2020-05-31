@@ -1,4 +1,4 @@
-package com.github.liuhuagui.mybatis.auxiliary.modle;
+package com.github.liuhuagui.mybatis.auxiliary.model;
 
 import java.math.BigInteger;
 import java.util.function.Function;

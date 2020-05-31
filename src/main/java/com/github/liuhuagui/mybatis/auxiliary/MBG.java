@@ -20,6 +20,11 @@ import java.util.Map;
  */
 @Builder
 public class MBG {
+    /**
+     * Default root class, whose subclass any custom root class should be.
+     */
+    public static final String DEFAULT_ROOT_CLASS = "com.github.liuhuagui.mybatis.auxiliary.model.BaseDO";
+
     private String driverClass;
 
     private String connectionURL;
@@ -27,6 +32,8 @@ public class MBG {
     private String userId;
 
     private String password;
+
+    private String rootClass;
 
     private String javaModelTargetPackage;
 
@@ -40,6 +47,7 @@ public class MBG {
      * key 完整的表名，value 表的别名
      */
     private Map<String, String> tablesMap;
+
 
     public void generate() {
         List<String> warnings = new ArrayList<String>();
@@ -65,10 +73,11 @@ public class MBG {
         commentGeneratorConfiguration.addProperty("suppressAllComments", "true");
         context.setCommentGeneratorConfiguration(commentGeneratorConfiguration);
 
+        rootClass = rootClass == null ? DEFAULT_ROOT_CLASS : rootClass;
         JavaModelGeneratorConfiguration javaModelGeneratorConfiguration = new JavaModelGeneratorConfiguration();
         javaModelGeneratorConfiguration.setTargetPackage(this.javaModelTargetPackage);
         javaModelGeneratorConfiguration.setTargetProject(this.javaModelTargetProject);
-        javaModelGeneratorConfiguration.addProperty("rootClass", "com.github.liuhuagui.mybatis.auxiliary.modle.BaseDO");
+        javaModelGeneratorConfiguration.addProperty("rootClass", rootClass);
         context.setJavaModelGeneratorConfiguration(javaModelGeneratorConfiguration);
 
         JavaClientGeneratorConfiguration javaClientGeneratorConfiguration = new JavaClientGeneratorConfiguration();
@@ -85,18 +94,10 @@ public class MBG {
         pluginConfiguration1.setConfigurationType("org.mybatis.generator.plugins.UnmergeableXmlMappersPlugin");
         context.addPluginConfiguration(pluginConfiguration1);
 
-        PluginConfiguration pluginConfiguration2 = new PluginConfiguration();
-        pluginConfiguration2.setConfigurationType("com.github.liuhuagui.mybatis.auxiliary.plugin.FluentBuilderMethodsPlugin");
-        context.addPluginConfiguration(pluginConfiguration2);
-
         PluginConfiguration pluginConfiguration3 = new PluginConfiguration();
         pluginConfiguration3.setConfigurationType("com.github.liuhuagui.mybatis.auxiliary.plugin.BaseMapperPlugin");
         pluginConfiguration3.addProperty("baseMapper", "com.github.liuhuagui.mybatis.auxiliary.mapper.DynamicSqlMapper");
         context.addPluginConfiguration(pluginConfiguration3);
-
-        PluginConfiguration pluginConfiguration4 = new PluginConfiguration();
-        pluginConfiguration4.setConfigurationType("com.github.liuhuagui.mybatis.auxiliary.plugin.GenericRecursionSupportPlugin");
-        context.addPluginConfiguration(pluginConfiguration4);
 
         PluginConfiguration pluginConfiguration5 = new PluginConfiguration();
         pluginConfiguration5.setConfigurationType("com.github.liuhuagui.mybatis.auxiliary.plugin.LombokPlugin");
