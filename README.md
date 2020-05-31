@@ -6,7 +6,7 @@ MybatisDynamicSQL + 简单易用的物理分页+ Dynamic SQL Generator+《阿里
 <dependency>
     <groupId>com.github.liuhuagui</groupId>
     <artifactId>mybatis-dynamic-sql-auxiliary</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 <!-- 可选 -->
 <dependency>
