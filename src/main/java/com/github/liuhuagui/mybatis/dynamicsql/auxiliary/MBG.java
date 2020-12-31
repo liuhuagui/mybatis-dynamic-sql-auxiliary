@@ -9,7 +9,6 @@ import org.mybatis.generator.internal.DefaultShellCallback;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -69,7 +68,7 @@ public class MBG {
         context.setJavaTypeResolverConfiguration(javaTypeResolverConfiguration);
 
         CommentGeneratorConfiguration commentGeneratorConfiguration = new CommentGeneratorConfiguration();
-        commentGeneratorConfiguration.setConfigurationType("com.github.liuhuagui.mybatis.auxiliary.plugin.OnlyRemarkCommentGenerator");
+        commentGeneratorConfiguration.setConfigurationType("com.github.liuhuagui.mybatis.dynamicsql.auxiliary.plugin.OnlyRemarkCommentGenerator");
         commentGeneratorConfiguration.addProperty("suppressAllComments", "true");
         context.setCommentGeneratorConfiguration(commentGeneratorConfiguration);
 
@@ -95,12 +94,12 @@ public class MBG {
         context.addPluginConfiguration(pluginConfiguration1);
 
         PluginConfiguration pluginConfiguration3 = new PluginConfiguration();
-        pluginConfiguration3.setConfigurationType("com.github.liuhuagui.mybatis.auxiliary.plugin.BaseMapperPlugin");
-        pluginConfiguration3.addProperty("baseMapper", "com.github.liuhuagui.mybatis.auxiliary.mapper.DynamicSqlMapper");
+        pluginConfiguration3.setConfigurationType("com.github.liuhuagui.mybatis.dynamicsql.auxiliary.plugin.BaseMapperPlugin");
+        pluginConfiguration3.addProperty("baseMapper", "com.github.liuhuagui.mybatis.dynamicsql.auxiliary.mapper.DynamicSqlMapper");
         context.addPluginConfiguration(pluginConfiguration3);
 
         PluginConfiguration pluginConfiguration5 = new PluginConfiguration();
-        pluginConfiguration5.setConfigurationType("com.github.liuhuagui.mybatis.auxiliary.plugin.LombokPlugin");
+        pluginConfiguration5.setConfigurationType("com.github.liuhuagui.mybatis.dynamicsql.auxiliary.plugin.LombokPlugin");
         context.addPluginConfiguration(pluginConfiguration5);
 
         //改变Boolean值映射，去掉is_前缀
